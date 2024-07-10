@@ -21,29 +21,29 @@ services:
       - ./jenkins_home:/var/jenkins_home
     restart: always
 
-  # sonarqube:
-  #   image: sonarqube:community
-  #   container_name: sonarqube
-  #   ports:
-  #     - "9000:9000"
-  #   environment:
-  #     - SONARQUBE_JDBC_URL=jdbc:h2:tcp://sonarqube-db:9092/sonar
-  #   volumes:
-  #     - ./sonarqube_data:/opt/sonarqube/data
-  #     - ./sonarqube_extensions:/opt/sonarqube/extensions
-  #     - ./sonarqube_logs:/opt/sonarqube/logs
-  #     - ./sonarqube_conf:/opt/sonarqube/conf
-  #   depends_on:
-  #     - sonarqube-db
-  #   restart: always
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:h2:tcp://sonarqube-db:9092/sonar
+    volumes:
+      - ./sonarqube_data:/opt/sonarqube/data
+      - ./sonarqube_extensions:/opt/sonarqube/extensions
+      - ./sonarqube_logs:/opt/sonarqube/logs
+      - ./sonarqube_conf:/opt/sonarqube/conf
+    depends_on:
+      - sonarqube-db
+    restart: always
 
-  # sonarqube-db:
-  #   image: sonarqube:community
-  #   container_name: sonarqube-db
-  #   ports:
-  #     - "9092:9092"
-  #   environment:
-  #     - SONARQUBE_JDBC_URL=jdbc:h2:tcp://localhost:9092/sonar
-  #   volumes:
-  #     - ./sonarqube_db:/opt/sonarqube/data
-  #   restart: always
+  sonarqube-db:
+    image: sonarqube:community
+    container_name: sonarqube-db
+    ports:
+      - "9092:9092"
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:h2:tcp://localhost:9092/sonar
+    volumes:
+      - ./sonarqube_db:/opt/sonarqube/data
+    restart: always
