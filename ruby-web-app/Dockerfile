@@ -16,7 +16,7 @@ RUN bundle install
 COPY . .
 
 # Expose port 4567 to the outside world
-EXPOSE 80
+EXPOSE 4567
 
 # Command to run the application
 CMD ["ruby", "app.rb"]
