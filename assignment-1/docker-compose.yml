@@ -7,8 +7,6 @@ services:
     container_name: flaskapp
     ports:
       - "5000:5000"
-    networks:
-      - default
     restart: always
 
   jenkins:
