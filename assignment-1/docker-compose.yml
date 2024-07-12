@@ -1,13 +1,6 @@
 version: '3'
 
 services:
-  flaskapp:
-    build: .
-    image: flask-app
-    container_name: flaskapp
-    ports:
-      - "5000:5000"
-    restart: always
 
   jenkins:
     image: jenkins/jenkins:lts
