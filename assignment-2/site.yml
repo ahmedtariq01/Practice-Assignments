@@ -1,0 +1,8 @@
+---
+- name: Install Docker, Docker Compose, and Nginx
+  hosts: localhost
+  become: yes
+  roles:
+    - role: docker
+    - role: docker-compose
+    - role: nginx
