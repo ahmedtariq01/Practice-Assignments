@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Update package list
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install curl -y && \
     rm -rf /var/lib/apt/lists/*
 
